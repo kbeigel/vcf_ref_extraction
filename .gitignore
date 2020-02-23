@@ -1,0 +1,4 @@
+.idea
+venv
+*.vcf
+ref_output.txt
