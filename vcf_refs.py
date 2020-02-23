@@ -1,6 +1,5 @@
 import csv
 
-
 class VCF_DataLine:
     def __init__(self):
         self.chrom = ''
