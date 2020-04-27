@@ -1,5 +1,5 @@
+## INSTRUCTIONS ARE RIGHT BEFORE THE FIRST IF STATEMENT AFTER CLASS SET-UP
 import csv
-
 
 class VCF_DataLine:
     def __init__(self):
@@ -33,10 +33,12 @@ class VCF_DataLine:
         return "{0},{1},{2},{3},{4},{5},{6},{7}".format(self.chrom, self.pos, self.id, self.ref, self.alt, self.qual,
                                                         self.filter, self.info)
 
-    ## the infile name goes here, as a string in open()
-if __name__ == '__main__':
-    infile = open('JSant.recode.vcf', 'r')
+    ## put the name of your taxa here; it will be added as a header in your output file
+    FASTA_header = 'my_taxon_name'
 
+if __name__ == '__main__':
+    ## the infile name goes here, as a string in open()
+    infile = open('JSant.recode.vcf', 'r')
 
     reader = csv.reader(infile, delimiter='\t')
 
@@ -72,8 +74,10 @@ if __name__ == '__main__':
     infile.close()
 
     char_count = 0
-    ## ref_output.txt is the name of the output file
+    ## ref_output.txt is the output file; this can be named whatever you want but must retain .txt
     with open('ref_output.txt', 'w') as outputfile:
+
+        outputfile.write(">"'FASTA_header\n')
         for DataLine in AllDataLines:
             if DataLine.info['TYP'] == 'SUB':
                 outputfile.write(DataLine.ref)
@@ -82,6 +86,7 @@ if __name__ == '__main__':
     print('Total characters output:', char_count)
     print('Total characters omitted:', len(AllDataLines) - char_count)
     print('Total characters:', len(AllDataLines))
+
 
     # nextline = next(reader)
     # while nextline.startswith('##'):
