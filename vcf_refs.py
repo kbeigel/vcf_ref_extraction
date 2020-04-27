@@ -1,5 +1,6 @@
 import csv
 
+
 class VCF_DataLine:
     def __init__(self):
         self.chrom = ''
@@ -28,13 +29,14 @@ class VCF_DataLine:
         self.filter = filter
         self.info = self.parse2dict(info)
 
-
     def __str__(self):
-        return "{0},{1},{2},{3},{4},{5},{6},{7}".format(self.chrom, self.pos, self.id, self.ref, self.alt, self.qual, self.filter, self.info)
+        return "{0},{1},{2},{3},{4},{5},{6},{7}".format(self.chrom, self.pos, self.id, self.ref, self.alt, self.qual,
+                                                        self.filter, self.info)
 
-
+    ## the infile name goes here, as a string in open()
 if __name__ == '__main__':
-    infile = open('JSfungus.recode.vcf', 'r')
+    infile = open('JSant.recode.vcf', 'r')
+
 
     reader = csv.reader(infile, delimiter='\t')
 
@@ -43,15 +45,14 @@ if __name__ == '__main__':
 
     ## WHILE it is true that the condition is true
     # while condition == True:
-        ## if the next line of the csv reader starts with ##
-        # if next(reader).startswith('##'):
-            ## skip it
-            # pass
-        ## otherwise
-        # else:
-            ## set the condition to false
-            # condition = False
-
+    ## if the next line of the csv reader starts with ##
+    # if next(reader).startswith('##'):
+    ## skip it
+    # pass
+    ## otherwise
+    # else:
+    ## set the condition to false
+    # condition = False
 
     # while the next line in the csv starts with '##'
     while next(reader)[0].startswith('##'):
@@ -71,7 +72,7 @@ if __name__ == '__main__':
     infile.close()
 
     char_count = 0
-
+    ## ref_output.txt is the name of the output file
     with open('ref_output.txt', 'w') as outputfile:
         for DataLine in AllDataLines:
             if DataLine.info['TYP'] == 'SUB':
@@ -82,7 +83,6 @@ if __name__ == '__main__':
     print('Total characters omitted:', len(AllDataLines) - char_count)
     print('Total characters:', len(AllDataLines))
 
-
     # nextline = next(reader)
     # while nextline.startswith('##'):
     #    nextline = next(reader)
@@ -92,4 +92,3 @@ if __name__ == '__main__':
 
     # vcf2 = VCF_Cat()
     # vcf2.insert('contig_1', '72', '.', 'C', 'T', '41.41', 'PASS', 'stuff;otherstuff')
-
