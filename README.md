@@ -1,4 +1,4 @@
-### 
+## README
 The Python script, ‘vcf_ref_extraction.py,’ is available on GitHub (github.com/kbeigel/vcf_ref_extraction). This script takes a .vcf file as input and examines the .vcf file and extracts all of the bases from sites in the reference genome that were identified as SNP sites. These SNPs are kept in the same order as they appear in the .vcf (which is also the same order of SNPs in the PHYLIP file of sample SNP data) and output into a text file. Using Mesquite (v. 3.61), the output reference file (.txt or FASTA) was added back into the PHYLIP file (Maddison and Maddison 2019). As a side note, this script could be tweaked to extract other information stored in the .vcf file such as counts and identities of insertions and deletions that appeared in the variant-calling process (which are not a part of the output SNP dataset; SNPs are the result of TYP == SUB). 
 
 #### 1. Extraction of reference sequence from .vcf
