@@ -1,10 +1,12 @@
-# vcf_refs.py is a script that can be used to extract the REFERENCE DATA from a variant call format file.
-# NOTE: the vcf MUST contain information in the TYP column (the scripts searches for TYP == SUB to identify
+# vcf_ref_exraction.py is a script that can be used to extract the REFERENCE DATA from a variant call format file (VCF file).
+# NOTE: the .vcf MUST contain information in the TYP column (the scripts searches for TYP == SUB to identify
 # reference bases from ONLY substitution calls (vs. insertions, deletions, etc., which are NOT used for SNP calling).
 # The script will not execute properly if a vcf without TYP data is entered.
 # This script was designed to be run from PyCharm IDE (Community).
 # AVAILABLE FROM https://github.com/kbeigel/vcf_ref_extraction
 # PLEASE CREDIT Katherine Beigel and include link to github (above line) if you use this script. Thank you!
+# Script could be edited to search for other TYP options. Let me know if you get this to work!
+
 # INSTRUCTIONS ARE RIGHT BEFORE THE FIRST IF STATEMENT AFTER CLASS SET-UP
 import csv
 
